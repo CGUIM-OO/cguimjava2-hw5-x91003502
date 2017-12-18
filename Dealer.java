@@ -1,5 +1,10 @@
+import java.util.ArrayList;
 
-public class Dealer extends Person {
+public class Dealer extends Person  {
+	
+	public Dealer() {
+		
+	}
 	@Override
 	public boolean hit_me(Table tbl) {
 		int total_value = getTotalValue();
@@ -33,7 +38,13 @@ public class Dealer extends Person {
 					return false;
 			}
 		}
+	}
 
+	@Override
+	public void setOneRoundCard(ArrayList<Card> cards) {
+		oneRoundCard = new ArrayList<Card>();
+		oneRoundCard.addAll(cards);
+		
 	}
 
 }

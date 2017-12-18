@@ -1,14 +1,19 @@
 import java.util.ArrayList;
 
 public abstract class Person {
-	private ArrayList<Card> oneRoundCard;
-	public void setOneRoundCard(ArrayList<Card> cards){
-		oneRoundCard=cards;
-	}
+	
+	public ArrayList<Card> oneRoundCard;
+	public abstract void setOneRoundCard(ArrayList<Card> cards);
+	
 	public ArrayList<Card> getOneRoundCard(){
 		return oneRoundCard;
 	}
+	
 	public abstract boolean hit_me(Table table);
+	
+	/**
+	 * This method help both players and dealer to get their total value.
+	 */	
 	public int getTotalValue() {
 		int Ace_count = 0;
 		int total_value = 0;
@@ -44,7 +49,7 @@ public abstract class Person {
 	}
 	public void printAllCard(){
 		for(Card c : oneRoundCard){
-			c.printCard();
+			c.printCard(c.getSuit(),c.getRank());
 		}
 	}
 }
